@@ -1,7 +1,7 @@
 {
   "name": "@hacss/plugin-copy",
   "version": "1.0.0",
-  "description": "Combine multiple plugins into a single plugin.",
+  "description": "Copy the value of one property to another.",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
