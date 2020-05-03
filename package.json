@@ -13,7 +13,9 @@
   "keywords": [
     "hacss",
     "plugin",
-    "compose",
+    "copy",
+    "properties",
+    "declarations",
     "css",
     "atomic",
     "inline",
