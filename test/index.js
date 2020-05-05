@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const copyPlugin = require("../index.js");
+const copyPlugin = require("../dist/hacss-plugin-copy.umd.js");
 
 describe("copy plugin", () => {
   const input = {
