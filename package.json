@@ -6,7 +6,7 @@
   "scripts": {
     "prepublishOnly": "webpack",
     "pretest": "webpack",
-    "test": "mocha test"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
@@ -35,12 +35,10 @@
     "@hacss/eslint-config": "^1.0.0",
     "@hacss/prettier-config": "^1.0.0",
     "babel-loader": "^8.1.0",
-    "chai": "^4.2.0",
     "core-js-pure": "^3.6.5",
     "eslint": "^6.8.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
-    "mocha": "^7.1.2",
     "prettier": "^2.0.5",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"

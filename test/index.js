@@ -1,30 +1,39 @@
-const { expect } = require("chai");
+const assert = require("assert");
 const copyPlugin = require("../dist/hacss-plugin-copy.umd.js");
 
-describe("copy plugin", () => {
-  const input = {
-    "margin-x": "20px",
-    "margin-y": "30px",
+const input = {
+  "margin-x": "20px",
+  "margin-y": "30px",
+};
+
+const spec = {
+  "margin-x": ["margin-left", "margin-right"],
+  "margin-y": ["margin-top", "margin-bottom"],
+};
+
+const [copy, properties] = copyPlugin(spec);
+
+{
+  const expected = {
+    ...input,
+    "margin-left": "20px",
+    "margin-right": "20px",
+    "margin-top": "30px",
+    "margin-bottom": "30px",
   };
 
-  const spec = {
-    "margin-x": ["margin-left", "margin-right"],
-    "margin-y": ["margin-top", "margin-bottom"],
-  };
+  const actual = copy(input);
 
-  const [ copy, properties ] = copyPlugin(spec);
+  console.log(`${JSON.stringify(actual)} === ${JSON.stringify(expected)}`);
+  assert.deepEqual(actual, expected);
+}
 
-  it("copies values to specified properties", () => {
-    expect(copy(input)).to.deep.equal({
-      ...input,
-      "margin-left": "20px",
-      "margin-right": "20px",
-      "margin-top": "30px",
-      "margin-bottom": "30px",
-    });
-  });
+{
+  const expected = Object.keys(spec);
+  const actual = properties;
 
-  it("adds the keys from the spec to the list of recognized properties", () => {
-    expect(properties).to.deep.equal(Object.keys(spec));
-  });
-});
+  console.log(`${JSON.stringify(actual)} === ${JSON.stringify(expected)}`);
+  assert.deepEqual(actual, expected);
+}
+
+console.log("All tests passed.");
